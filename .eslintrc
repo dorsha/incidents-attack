@@ -1,0 +1,58 @@
+{
+  "root": true,
+  "extends": "airbnb",
+  "env": {
+    "browser": true,
+    "mocha": true,
+    "node": true,
+    "es6": true
+  },
+  "globals" : {
+    __DEV_TOOLS__: true
+  },
+  "parser": "babel-eslint",
+  "rules": {
+    "no-console": 2,
+    "new-cap": 0,
+    "no-underscore-dangle": 0,
+    "no-warning-comments": [2, { "terms": ["todo", "fixme", "xxx", "to do", "to-do", "to fix"], "location": "anywhere" }],
+    "valid-jsdoc": 2,
+    "max-len": [2, 120, 2, {"ignoreUrls": true}],
+    "prefer-template": 0,
+    "react/jsx-uses-react": 2,
+    "react/jsx-uses-vars": 2,
+    "react/react-in-jsx-scope": 2,
+    "comma-dangle": [2, "never"],
+    "id-length": 0,
+    "no-param-reassign": [2, {"props": false}],
+    "arrow-body-style": 0,
+    "react/prefer-stateless-function": 0,
+    "react/prefer-es6-class": 0,
+    "react/require-extension": 0,
+    "react/forbid-prop-types": 0,
+    "generator-star-spacing": 0,
+    "react/jsx-filename-extension": 0,
+    "import/prefer-default-export": 0,
+    "import/imports-first": 0,
+    "no-continue": 0,
+    "import/newline-after-import": 0,
+    "jsx-a11y/label-has-for": 0,
+    "react/no-find-dom-node": 0,
+    "react/no-string-refs": 0,
+    "no-mixed-operators": 0,
+    "no-prototype-builtins": 0,
+    "no-plusplus": 0,
+    "no-bitwise": 0,
+    "react/no-did-mount-set-state": 0,
+    "react/jsx-no-bind": [2,
+      {
+        "ignoreRefs": true,
+        "allowArrowFunctions": true,
+        "allowBind": true // Should be changed to false after moving to ES7 decorator approach
+      }
+    ]
+  },
+  "plugins": [
+    "react"
+  ]
+}

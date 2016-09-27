@@ -1,0 +1,20 @@
+# OS temp files
+.DS_Store
+thumb.db
+
+# node_modules
+node_modules/
+
+# Log files
+/*.log
+
+# Dist
+/dist
+
+# IDEA
+.idea
+
+# Tests
+/coverage
+
+webpack-assets.json

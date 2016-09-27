@@ -1,0 +1,17 @@
+* {
+  font-family: "Courier New", Courier, monospace;
+}
+
+html, body, #root {
+  background: black;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-size: 3vw;
+}
+
+* {
+  box-sizing: border-box;
+}
