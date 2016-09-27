@@ -11,3 +11,8 @@ dependencies:
 test:
   override:
     - npm run lint
+deployment:
+  production:
+    branch: master
+    commands:
+      - ./node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --non-interactive
