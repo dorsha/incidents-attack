@@ -11,7 +11,7 @@ import { Body } from 'react-game-kit';
 class Power extends Component {
 
   static propTypes = {
-    store: PropTypes.object,
+    store: PropTypes.object
   };
 
   static contextTypes = {
