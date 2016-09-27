@@ -59,6 +59,10 @@ module.exports = {
         loader: 'file?name=fonts/[name]-[hash].[ext]'
       },
       {
+        test: /\.(wav|mp3)$/i,
+        loader: 'file?name=[name]-bundle-[hash].[ext]'
+      },
+      {
         test: /\.json$/,
         loader: 'json'
       }
