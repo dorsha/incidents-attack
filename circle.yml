@@ -28,4 +28,4 @@ deployment:
       - cd dist
       - npm pack
       - echo -e "$NPM_USERNAME\n$NPM_PASSWORD\n$NPM_EMAIL" | npm login
-      - npm publish
+      - npm publish incidents-attack-*.tgz

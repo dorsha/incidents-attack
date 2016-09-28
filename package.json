@@ -1,6 +1,6 @@
 {
   "name": "incidents-attack",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "description": "Incidents Attack is a game wrriten in ReactJS and created with the awesome react react-game-kit library.",
   "homepage": "https://www.dorsha.com",
   "author": "Doron Sharon",
