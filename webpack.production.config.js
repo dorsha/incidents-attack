@@ -30,7 +30,10 @@ module.exports = {
       filename: 'index.html',
       template: 'index.template.html'
     }),
-    new AssetsPlugin()
+    new AssetsPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: { warnings: false }
+    })
   ],
   module: {
     loaders: [
