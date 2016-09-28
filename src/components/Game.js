@@ -120,9 +120,7 @@ class Game extends Component {
 
   handleGameOver = () => {
     this.setState({ fade: true });
-    setTimeout(() => {
-      this.props.onGameOver(GameStore.score);
-    }, 1000);
+    this.props.onGameOver(GameStore.score);
   };
 
   handlePowerMode = () => {

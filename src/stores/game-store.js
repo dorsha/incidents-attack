@@ -6,14 +6,83 @@ const initialCharacterState = { x: 0, y: 0 };
 const initialPowerState = { x: WORLD_WIDTH, y: 0, hit: false, secondsLeft: POWER_MODE_PERIOD_SECONDS };
 
 const initialEvilsState = {
-  virus: { name: 'Virus', position: { x: WORLD_WIDTH, y: 0 }, hit: false, speed: 1 },
-  malware: { name: 'Malware', position: { x: WORLD_WIDTH, y: 0 }, hit: false, speed: 1 },
-  phishing: { name: 'Phishing', position: { x: WORLD_WIDTH, y: 0 }, hit: false, speed: 1 },
-  devicelost: { name: 'DeviceLost', position: { x: WORLD_WIDTH, y: 0 }, hit: false, speed: 1 },
-  unclassified: { name: 'Unclassified', position: { x: WORLD_WIDTH, y: 0 }, hit: false, speed: 1 },
-  c2communication: { name: 'C2Communication', position: { x: WORLD_WIDTH, y: 0 }, hit: false, speed: 1 },
-  ransomware: { name: 'Ransomware', position: { x: WORLD_WIDTH, y: 0 }, hit: false, speed: 1 },
-  unknownbinary: { name: 'UnknownBinary', position: { x: WORLD_WIDTH, y: 0 }, hit: false, speed: 1 }
+  virus1: {
+    name: 'Virus1',
+    position: { x: WORLD_WIDTH / 2, y: 0 },
+    hit: false,
+    minSpeed: 3,
+    maxSpeed: 4
+  },
+  virus2: {
+    name: 'Virus2',
+    position: { x: WORLD_WIDTH / 2, y: 0 },
+    hit: false,
+    minSpeed: 2,
+    maxSpeed: 4
+  },
+  virus3: {
+    name: 'Virus3',
+    position: { x: WORLD_WIDTH / 3, y: 0 },
+    hit: false,
+    minSpeed: 2,
+    maxSpeed: 6
+  },
+  virus4: {
+    name: 'Virus4',
+    position: { x: WORLD_WIDTH / 3, y: 0 },
+    hit: false,
+    minSpeed: 1,
+    maxSpeed: 4
+  },
+  malware: {
+    name: 'Malware',
+    position: { x: WORLD_WIDTH, y: 0 },
+    hit: false,
+    minSpeed: 1,
+    maxSpeed: 4
+  },
+  phishing: {
+    name: 'Phishing',
+    position: { x: WORLD_WIDTH, y: 0 },
+    hit: false,
+    minSpeed: 1,
+    maxSpeed: 6
+  },
+  devicelost: {
+    name: 'DeviceLost',
+    position: { x: WORLD_WIDTH, y: 0 },
+    hit: false,
+    minSpeed: 1,
+    maxSpeed: 7
+  },
+  unclassified: {
+    name: 'Unclassified',
+    position: { x: WORLD_WIDTH, y: 0 },
+    hit: false,
+    minSpeed: 1,
+    maxSpeed: 7
+  },
+  c2communication: {
+    name: 'C2Communication',
+    position: { x: WORLD_WIDTH, y: 0 },
+    hit: false,
+    minSpeed: 4,
+    maxSpeed: 7
+  },
+  ransomware: {
+    name: 'Ransomware',
+    position: { x: WORLD_WIDTH, y: 0 },
+    hit: false,
+    minSpeed: 1,
+    topSpeed: 7
+  },
+  unknownbinary: {
+    name: 'UnknownBinary',
+    position: { x: WORLD_WIDTH, y: 0 },
+    hit: false,
+    minSpeed: 5,
+    maxSpeed: 8
+  }
 };
 
 class GameStore {
@@ -37,8 +106,9 @@ class GameStore {
     this.power = cloneDeep(initialPowerState);
 
     Object.keys(initialEvilsState).forEach((type) => {
-      this.evils[type].speed = Math.floor(Math.random() * 10) + 1;
-      this.evils[type].position = { x: WORLD_WIDTH, y: 0 };
+      const evil = initialEvilsState[type];
+      this.evils[type].speed = Math.floor(Math.random() * evil.maxSpeed) + evil.minSpeed;
+      this.evils[type].position = evil.position;
     });
 
     this.score = 0;
@@ -52,7 +122,7 @@ class GameStore {
   setPowerMode() {
     this.power.hit = true;
     const interval = setInterval(() => {
-      this.power.secondsLeft -= 1;
+      this.power.secondsLeft = Math.max(this.power.secondsLeft - 1, 0);
       if (this.power.secondsLeft < 0) {
         clearInterval(interval);
       }
