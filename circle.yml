@@ -23,4 +23,4 @@ deployment:
       - npm run check
       - npm run production
       - echo -e "$NPM_USERNAME\n$NPM_PASSWORD\n$NPM_EMAIL" | npm login
-      - npm publish . --tag /release-.*/ --access public
+      - npm publish
