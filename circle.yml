@@ -22,5 +22,8 @@ deployment:
       - npm install
       - npm run check
       - npm run production
+      - cp package.json dist
+      - cd dist
+      - npm pack
       - echo -e "$NPM_USERNAME\n$NPM_PASSWORD\n$NPM_EMAIL" | npm login
       - npm publish

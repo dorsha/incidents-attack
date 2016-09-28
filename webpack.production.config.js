@@ -12,10 +12,27 @@ module.exports = {
   entry: {
     app: './src/index'
   },
+  externals: [
+    {
+      react: {
+        root: 'React',
+        commonjs2: 'react',
+        commonjs: 'react',
+        amd: 'react'
+      },
+      'react-dom': {
+        root: 'ReactDom',
+        commonjs2: 'react-dom',
+        commonjs: 'react-dom',
+        amd: 'react-dom'
+      }
+    }
+  ],
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].js',
-    publicPath: ''
+    publicPath: '',
+    libraryTarget: 'umd'
   },
   plugins: [
     new webpack.NoErrorsPlugin(),
@@ -31,6 +48,7 @@ module.exports = {
       template: 'index.template.html'
     }),
     new AssetsPlugin(),
+    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: { warnings: false }
     })
