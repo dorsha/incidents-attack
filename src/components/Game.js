@@ -134,7 +134,7 @@ class Game extends Component {
 
     return (
       <Loop>
-        <Stage style={{ background: '#3a9bdc', position: 'static' }}>
+        <Stage style={{ background: '#2e3235', position: 'static' }}>
           <World onInit={this.physicsInit} onCollision={this.onCollision}>
             <Score store={GameStore} />
             <PowerModeLabel store={GameStore} />
