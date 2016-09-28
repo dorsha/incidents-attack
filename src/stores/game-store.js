@@ -6,77 +6,77 @@ const initialCharacterState = { x: 0, y: 0 };
 const initialPowerState = { x: WORLD_WIDTH, y: 0, hit: false, secondsLeft: POWER_MODE_PERIOD_SECONDS };
 
 const initialEvilsState = {
-  virus1: {
-    name: 'Virus1',
+  e1: {
+    name: 'BruteForce',
     position: { x: WORLD_WIDTH / 2, y: 0 },
     hit: false,
     minSpeed: 3,
     maxSpeed: 4
   },
-  virus2: {
-    name: 'Virus2',
+  e2: {
+    name: 'RogueWifi',
     position: { x: WORLD_WIDTH / 2, y: 0 },
     hit: false,
     minSpeed: 2,
     maxSpeed: 4
   },
-  virus3: {
-    name: 'Virus3',
+  e3: {
+    name: 'Backdoor',
     position: { x: WORLD_WIDTH / 3, y: 0 },
     hit: false,
     minSpeed: 2,
     maxSpeed: 6
   },
-  virus4: {
-    name: 'Virus4',
+  e4: {
+    name: 'Honeypot',
     position: { x: WORLD_WIDTH / 3, y: 0 },
     hit: false,
     minSpeed: 1,
     maxSpeed: 4
   },
-  malware: {
+  e5: {
     name: 'Malware',
     position: { x: WORLD_WIDTH, y: 0 },
     hit: false,
     minSpeed: 1,
     maxSpeed: 4
   },
-  phishing: {
+  e6: {
     name: 'Phishing',
     position: { x: WORLD_WIDTH, y: 0 },
     hit: false,
     minSpeed: 1,
     maxSpeed: 6
   },
-  devicelost: {
+  e7: {
     name: 'DeviceLost',
     position: { x: WORLD_WIDTH, y: 0 },
     hit: false,
     minSpeed: 1,
     maxSpeed: 7
   },
-  unclassified: {
+  e8: {
     name: 'Unclassified',
     position: { x: WORLD_WIDTH, y: 0 },
     hit: false,
     minSpeed: 1,
     maxSpeed: 7
   },
-  c2communication: {
+  e9: {
     name: 'C2Communication',
     position: { x: WORLD_WIDTH, y: 0 },
     hit: false,
     minSpeed: 4,
     maxSpeed: 7
   },
-  ransomware: {
+  e10: {
     name: 'Ransomware',
     position: { x: WORLD_WIDTH, y: 0 },
     hit: false,
     minSpeed: 1,
     topSpeed: 7
   },
-  unknownbinary: {
+  e11: {
     name: 'UnknownBinary',
     position: { x: WORLD_WIDTH, y: 0 },
     hit: false,
