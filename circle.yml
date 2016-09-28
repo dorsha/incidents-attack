@@ -23,6 +23,8 @@ deployment:
       - npm run check
       - npm run production
       - cp package.json dist
+      - cp LICENSE dist
+      - cp README.md dist
       - cd dist
       - npm pack
       - echo -e "$NPM_USERNAME\n$NPM_PASSWORD\n$NPM_EMAIL" | npm login
