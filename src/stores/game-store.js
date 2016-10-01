@@ -113,6 +113,8 @@ class GameStore {
 
     this.score = 0;
     this.stageX = 0;
+
+    window.clearInterval(this.powerModeInterval);
   }
 
   setCharacterPosition(position) {
@@ -120,17 +122,27 @@ class GameStore {
   }
 
   setPowerMode() {
+    if (this.power.hit) {
+      return;
+    }
+
     this.power.hit = true;
-    const interval = setInterval(() => {
+    this.powerModeInterval = setInterval(() => {
       this.power.secondsLeft = Math.max(this.power.secondsLeft - 1, 0);
       if (this.power.secondsLeft < 0) {
-        clearInterval(interval);
+        if (this.powerModeInterval) {
+          window.clearInterval(this.powerModeInterval);
+        }
       }
     }, 1000);
 
     setTimeout(() => {
-      this.power = initialPowerState;
-      clearInterval(interval);
+      if (this.powerModeInterval) {
+        window.clearInterval(this.powerModeInterval);
+        if (this.power.hit) {
+          this.power.hit = false;
+        }
+      }
     }, POWER_MODE_PERIOD_SECONDS * 1000);
   }
 

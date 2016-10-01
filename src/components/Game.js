@@ -124,9 +124,11 @@ class Game extends Component {
   };
 
   handlePowerMode = () => {
-    this.powerModeNoise.play({ volume: 0.25 });
-    GameStore.setPowerMode();
-    this.setState({ powerModeTaken: true });
+    if (!GameStore.power.hit) {
+      this.powerModeNoise.play({volume: 0.25});
+      GameStore.setPowerMode();
+      this.setState({powerModeTaken: true});
+    }
   };
 
   render() {
