@@ -6,27 +6,12 @@ const postcssUrl = require('postcss-url');
 const postcssImport = require('postcss-import');
 const postcssCssnext = require('postcss-cssnext');
 const postcssReporter = require('postcss-reporter');
+const AssetsPlugin = require('assets-webpack-plugin');
 
 module.exports = {
   entry: {
     app: './src/index'
   },
-  externals: [
-    {
-      react: {
-        root: 'React',
-        commonjs2: 'react',
-        commonjs: 'react',
-        amd: 'react'
-      },
-      'react-dom': {
-        root: 'ReactDom',
-        commonjs2: 'react-dom',
-        commonjs: 'react-dom',
-        amd: 'react-dom'
-      }
-    }
-  ],
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].js',
@@ -46,6 +31,7 @@ module.exports = {
       filename: 'index.html',
       template: 'index.template.html'
     }),
+    new AssetsPlugin(),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: { warnings: false }
