@@ -6,7 +6,6 @@ const postcssUrl = require('postcss-url');
 const postcssImport = require('postcss-import');
 const postcssCssnext = require('postcss-cssnext');
 const postcssReporter = require('postcss-reporter');
-const AssetsPlugin = require('assets-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -47,7 +46,6 @@ module.exports = {
       filename: 'index.html',
       template: 'index.template.html'
     }),
-    new AssetsPlugin(),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: { warnings: false }
