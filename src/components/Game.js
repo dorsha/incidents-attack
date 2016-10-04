@@ -1,5 +1,5 @@
 import gameMusic from '../../assets/game-music.mp3';
-import powerModeSound from '../../assets/power-mode.mp3';
+import powerModeSound from '../../assets/powerup.mp3';
 import React, { Component, PropTypes } from 'react';
 import Matter from 'matter-js';
 import { WORLD_WIDTH, COLLISIONS } from '../constants/Constants';

@@ -1,6 +1,5 @@
 import './Intro.less';
-import introMusic from '../../assets/intro-music.mp3';
-import introStart from '../../assets/intro-start-game.wav';
+import introStart from '../../assets/start.mp3';
 import introBackground from '../../assets/intro.png';
 import React, { Component, PropTypes } from 'react';
 import Gamepad from 'html5-gamepad';
@@ -25,25 +24,20 @@ class Intro extends Component {
   }
 
   componentDidMount() {
-    this.player = new AudioPlayer(introMusic, () => {
-      this.stopMusic = this.player.play({ loop: true, offset: 1, volume: 0.15 });
-
-      this.startNoise = new AudioPlayer(introStart);
-      window.addEventListener('keypress', this.handleKeyPress);
-      this.animationFrame = requestAnimationFrame(this.startUpdate);
-      this.interval = setInterval(() => {
-        this.setState({
-          blink: !this.state.blink
-        });
-      }, 500);
-    });
+    this.startNoise = new AudioPlayer(introStart);
+    window.addEventListener('keypress', this.handleKeyPress);
+    this.animationFrame = requestAnimationFrame(this.startUpdate);
+    this.interval = setInterval(() => {
+      this.setState({
+        blink: !this.state.blink
+      });
+    }, 500);
   }
 
   componentWillUnmount() {
-    this.stopMusic();
     window.removeEventListener('keypress', this.handleKeyPress);
     cancelAnimationFrame(this.animationFrame);
-    clearInterval(this.interval);
+    window.clearInterval(this.interval);
   }
 
   startUpdate = () => {

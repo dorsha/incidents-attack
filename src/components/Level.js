@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
-import worldBackground from '../../assets/space-background.jpg';
-import walkingArea from '../../assets/floor.gif';
+import worldBackground from '../../assets/background-nature.png';
+import walkingArea from '../../assets/boardwalktile.png';
 import React, { Component, PropTypes } from 'react';
 import { autorun } from 'mobx';
 

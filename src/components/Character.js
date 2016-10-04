@@ -1,5 +1,5 @@
-import jumpSound from '../../assets/jump.wav';
-import punchSound from '../../assets/punch.wav';
+import jumpSound from '../../assets/jump.mp3';
+import punchSound from '../../assets/punch.mp3';
 import characterSprite from '../../assets/character-sprite.png';
 import React, { Component, PropTypes } from 'react';
 import { observer } from 'mobx-react';
@@ -77,7 +77,7 @@ class Character extends Component {
 
   jump = (body) => {
     const powerMode = this.props.store.power.hit;
-    this.jumpNoise.play({ volume: 0.1 });
+    this.jumpNoise.play({ volume: 0.8 });
     this.isJumping = true;
     Matter.Body.applyForce(
         body,

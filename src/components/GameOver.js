@@ -1,6 +1,5 @@
 import './GameOver.less';
-import gameOverSound from '../../assets/game-over.mp3';
-import introStart from '../../assets/intro-start-game.wav';
+import introStart from '../../assets/start.mp3';
 import React, { Component, PropTypes } from 'react';
 import Gamepad from 'html5-gamepad';
 import classNames from 'classnames';
@@ -25,24 +24,17 @@ class GameOver extends Component {
   }
 
   componentDidMount() {
-    this.player = new AudioPlayer(gameOverSound, () => {
-      this.stopMusic = this.player.play({ loop: false, offset: 1, volume: 0.15 });
-
-      this.startNoise = new AudioPlayer(introStart);
-      window.addEventListener('keypress', this.handleKeyPress);
-      this.animationFrame = requestAnimationFrame(this.startUpdate);
-      this.interval = setInterval(() => {
-        this.setState({
-          blink: !this.state.blink
-        });
-      }, 500);
-    });
+    this.startNoise = new AudioPlayer(introStart);
+    window.addEventListener('keypress', this.handleKeyPress);
+    this.animationFrame = requestAnimationFrame(this.startUpdate);
+    this.interval = setInterval(() => {
+      this.setState({
+        blink: !this.state.blink
+      });
+    }, 500);
   }
 
   componentWillUnmount() {
-    if (this.stopMusic) {
-      this.stopMusic();
-    }
     window.removeEventListener('keypress', this.handleKeyPress);
     cancelAnimationFrame(this.animationFrame);
     clearInterval(this.interval);
