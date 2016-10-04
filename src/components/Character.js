@@ -77,7 +77,7 @@ class Character extends Component {
 
   jump = (body) => {
     const powerMode = this.props.store.power.hit;
-    this.jumpNoise.play({ volume: 0.8 });
+    this.jumpNoise.play({ volume: 0.2 });
     this.isJumping = true;
     Matter.Body.applyForce(
         body,
