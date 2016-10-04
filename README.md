@@ -16,4 +16,4 @@ $ npm run build OR npm start
 
 Open your favorite browser at [http://localhost:8081](http://localhost:8081)
 
-Game character was made by the awesome [Universal LPC Sprite Sheet Character Generator](http://gaurav.munjal.us/Universal-LPC-Spritesheet-Character-Generator) (Created by Gaurav Munjal) 
+Game character was made by the awesome [Universal LPC Sprite Sheet Character Generator](http://gaurav.munjal.us/Universal-LPC-Spritesheet-Character-Generator) (Created by [Gaurav Munjal](https://github.com/Gaurav0)) 
