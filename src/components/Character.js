@@ -35,7 +35,7 @@ class Character extends Component {
     this.lastX = 0;
 
     this.state = {
-      characterState: 2,
+      characterState: 0,
       loop: false,
       spritePlaying: true
     };
@@ -82,16 +82,16 @@ class Character extends Component {
     Matter.Body.applyForce(
         body,
         { x: 0, y: 0 },
-        { x: 0, y: powerMode ? -0.25 : -0.15 },
+        { x: 0, y: powerMode ? -0.25 : -0.17 },
     );
-    Matter.Body.set(body, 'friction', 0.0001);
+    Matter.Body.set(body, 'friction', 0.0008);
   };
 
   punch = () => {
     this.punchNoise.play({ volume: 0.1 });
     this.isPunching = true;
     this.setState({
-      characterState: 4,
+      characterState: 19,
       repeat: false
     });
   };
@@ -100,7 +100,8 @@ class Character extends Component {
     const { keys, store } = this.props;
     const { body } = this.body;
 
-    let characterState = 2;
+    let characterState = 3;
+    let repeat = false;
 
     if (keys.isDown(65) || gamepad.button(0, 'b')) { // 'a'
       return this.punch();
@@ -120,19 +121,21 @@ class Character extends Component {
       }
 
       this.move(body, -5);
-      characterState = 1;
+      characterState = 9;
+      repeat = true;
     } else if (keys.isDown(keys.RIGHT) || gamepad.button(0, 'button 15')) {
       if (shouldMoveStageRight) {
         store.setStageX(store.stageX - 5);
       }
 
       this.move(body, 5);
-      characterState = 0;
+      characterState = 11;
+      repeat = true;
     }
 
     this.setState({
       characterState,
-      repeat: characterState < 2
+      repeat
     });
 
     return null;
@@ -191,7 +194,9 @@ class Character extends Component {
             src={characterSprite}
             scale={this.context.scale * 2}
             state={this.state.characterState}
-            steps={[9, 9, 0, 4, 5]}
+            steps={[1, 1, 1, 1, 8, 8, 8, 8, 8, 8, 8, 8, 6, 6, 6, 6, 12, 12, 12, 12, 6]}
+            tileHeight={64}
+            tileWidth={64}
           />
         </Body>
       </div>
