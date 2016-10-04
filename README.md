@@ -2,7 +2,7 @@
 
 Incidents Attack is a silly game written in ReactJS and created with the awesome [react-game-kit](https://github.com/FormidableLabs/react-game-kit) library.
 
-####You can play [here](https://incidents-attack.firebaseapp.com)
+###You can play [here](https://incidents-attack.firebaseapp.com)
 
 ## Getting Started
 ####Install Node.js and then:
