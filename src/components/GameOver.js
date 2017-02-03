@@ -4,7 +4,7 @@ import React, { Component, PropTypes } from 'react';
 import Gamepad from 'html5-gamepad';
 import classNames from 'classnames';
 
-import { AudioPlayer } from 'react-game-kit';
+import { AudioPlayer } from 'react-game-kit-without-gamepad';
 
 const gamepad = new Gamepad();
 
@@ -41,7 +41,6 @@ class GameOver extends Component {
   }
 
   startUpdate = () => {
-    gamepad.update();
     if (gamepad.button(0, 'left stick')) {
       this.startNoise.play();
       this.props.onStart();

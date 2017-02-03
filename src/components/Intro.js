@@ -3,7 +3,7 @@ import introStart from '../../assets/start.mp3';
 import introBackground from '../../assets/intro.png';
 import React, { Component, PropTypes } from 'react';
 import Gamepad from 'html5-gamepad';
-import { AudioPlayer } from 'react-game-kit';
+import { AudioPlayer } from 'react-game-kit-without-gamepad';
 import classNames from 'classnames';
 
 
@@ -41,7 +41,6 @@ class Intro extends Component {
   }
 
   startUpdate = () => {
-    gamepad.update();
     if (gamepad.button(0, 'left stick')) {
       this.startNoise.play();
       this.props.onStart();

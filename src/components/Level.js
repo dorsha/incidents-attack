@@ -4,7 +4,7 @@ import walkingArea from '../../assets/boardwalktile.png';
 import React, { Component, PropTypes } from 'react';
 import { autorun } from 'mobx';
 
-import { TileMap } from 'react-game-kit';
+import { TileMap } from 'react-game-kit-without-gamepad';
 
 
 class Level extends Component {

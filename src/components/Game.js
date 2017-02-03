@@ -4,7 +4,7 @@ import React, { Component, PropTypes } from 'react';
 import Matter from 'matter-js';
 import { WORLD_WIDTH, COLLISIONS } from '../constants/Constants';
 
-import { Loop, Stage, World, KeyListener, AudioPlayer } from 'react-game-kit';
+import { Loop, Stage, World, KeyListener, AudioPlayer } from 'react-game-kit-without-gamepad';
 
 import Level from './Level';
 import Character from './Character';

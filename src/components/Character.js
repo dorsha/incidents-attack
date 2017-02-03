@@ -7,7 +7,7 @@ import Gamepad from 'html5-gamepad';
 import Matter from 'matter-js';
 import { WORLD_WIDTH, COLLISIONS } from '../constants/Constants';
 
-import { AudioPlayer, Body, Sprite } from 'react-game-kit';
+import { AudioPlayer, Body, Sprite } from 'react-game-kit-without-gamepad';
 
 
 const gamepad = new Gamepad();
@@ -158,7 +158,6 @@ class Character extends Component {
     }
 
     if (!this.isJumping && !this.isPunching && !this.isLeaving) {
-      gamepad.update();
 
       this.checkKeys(shouldMoveStageLeft, shouldMoveStageRight);
 

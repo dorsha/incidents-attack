@@ -3,7 +3,7 @@ import { observer } from 'mobx-react';
 import Matter from 'matter-js';
 import { COLLISIONS } from '../constants/Constants';
 
-import { Body } from 'react-game-kit';
+import { Body } from 'react-game-kit-without-gamepad';
 
 
 @observer
