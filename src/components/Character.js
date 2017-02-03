@@ -158,7 +158,6 @@ class Character extends Component {
     }
 
     if (!this.isJumping && !this.isPunching && !this.isLeaving) {
-
       this.checkKeys(shouldMoveStageLeft, shouldMoveStageRight);
 
       store.setCharacterPosition(body.position);
